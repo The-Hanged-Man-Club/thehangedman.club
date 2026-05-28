@@ -1,4 +1,3 @@
-import astroNoEmail from "astro-noemail";
 import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 import metaTags from "astro-meta-tags";
@@ -12,9 +11,15 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: "https://thehangedman.club",
+  compressHTML: true,
   integrations: [
-    astroNoEmail(),
-    icon(),
+    icon({
+      include: {
+        gameIcons: ["direction-sign"],
+        // simple-icons needed for zod-transform-socials, but not shipped with plugin, so added here
+        simpleIcons: ["*"],
+      },
+    }),
     sitemap(),
     metaTags(),
     robotsTxt({
@@ -120,15 +125,15 @@ export default defineConfig({
         { label: "Home", link: "/" },
         {
           label: "Codex",
-          autogenerate: { directory: "about" },
+          items: [{ autogenerate: { directory: "about" } }],
         },
         {
           label: "The Joining",
-          autogenerate: { directory: "community" },
+          items: [{ autogenerate: { directory: "community" } }],
         },
         {
           label: "Member Inventory",
-          autogenerate: { directory: "resources" },
+          items: [{ autogenerate: { directory: "resources" } }],
         },
         {
           label: "Quests",
@@ -164,6 +169,6 @@ export default defineConfig({
   ],
 
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss() as any],
   },
 });
