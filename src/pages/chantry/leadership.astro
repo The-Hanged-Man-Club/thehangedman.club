@@ -1,38 +1,22 @@
 ---
+export const prerender = false;
+
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
 import ModCard from "../../components/ModCard.astro";
 
-import { getCollection } from "astro:content";
+import { getLiveCollection } from "astro:content";
 
-const discordMods = [
-  ...(await getCollection("mods", (mod) =>
-    mod.data.mod_duties.includes("discord")
-  )),
-];
+const { entries: allMods } = await getLiveCollection("mods");
 
-// const pillowfortMods = [
-//   ...(await getCollection("mods", (mod) =>
-//     mod.data.mod_duties.includes("pillowfort")
-//   )),
-// ];
-
-// const dreamwidthMods = [
-//   ...(await getCollection("mods", (mod) =>
-//     mod.data.mod_duties.includes("dreamwidth")
-//   )),
-// ];
-
-const arlathanMods = [
-  ...(await getCollection("mods", (mod) =>
-    mod.data.mod_duties.includes("arlathan")
-  )),
-];
-
-const dapolyMods = [
-  ...(await getCollection("mods", (mod) =>
-    mod.data.mod_duties.includes("da poly")
-  )),
-];
+const arlathanMods = allMods!.filter((mod) =>
+  mod.data.mod_duties.includes("arlathan")
+);
+const discordMods = allMods!.filter((mod) =>
+  mod.data.mod_duties.includes("discord")
+);
+const dapolyMods = allMods!.filter((mod) =>
+  mod.data.mod_duties.includes("da poly")
+);
 ---
 
 <StarlightPage
@@ -57,6 +41,7 @@ const dapolyMods = [
       discordMods.map(async (mod) => {
         return (
           <ModCard
+            id={mod.data.id}
             name={mod.data.name}
             avatar={mod.data.avatar}
             links={mod.data.links}
@@ -111,6 +96,7 @@ const dapolyMods = [
       arlathanMods.map(async (mod) => {
         return (
           <ModCard
+            id={mod.data.id}
             name={mod.data.name}
             avatar={mod.data.avatar}
             links={mod.data.links}
@@ -129,6 +115,7 @@ const dapolyMods = [
       dapolyMods.map(async (mod) => {
         return (
           <ModCard
+            id={mod.data.id}
             name={mod.data.name}
             avatar={mod.data.avatar}
             links={mod.data.links}

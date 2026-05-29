@@ -1,8 +1,10 @@
 {
-  "name": "thehangedmanpub",
+  "name": "thehangedmanclub",
   "license": "MIT",
   "type": "module",
-  "version": "1.0.0",
+  "overrides": {
+    "vite": "^7"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

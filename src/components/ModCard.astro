@@ -1,7 +1,8 @@
 ---
-import type { SocialLinksData } from "@fujocoded/zod-transform-socials";
+import type { SocialLinksData } from "@fujocoded/zod-transform-socials/zod4";
 
 interface Props {
+  id: string;
   name: string;
   avatar: string;
   links: SocialLinksData;
@@ -14,11 +15,11 @@ const props = Astro.props as Props;
 ---
 
 <div class="grid grid-flow-col grid-rows-2 gap-x-5 font-bold">
-  <div class="row-span-2 w-[75px]">
+  <div class="row-span-2 w-18.75">
     <img
       src={props.avatar}
       alt={`${props.name}'s avatar`}
-      class="w-[75px] rounded-full"
+      class="bg- bg-coffee-mid w-18.75 rounded-full"
       loading="lazy"
     />
   </div>
@@ -26,25 +27,25 @@ const props = Astro.props as Props;
   <div class="justify-end">{props.name}</div>
 
   <div class="social self-start">
-    <ul class="grid grid-flow-col place-content-start items-end gap-4 p-0">
+    <p class="inline-flex gap-2.5">
       {
-        props.links.map((link) =>
-          link?.url ? (
-            <li class="inline list-none align-middle">
-              <a href={link.url}>
-                {link.icon ? (
-                  <Icon name={link.icon} title={link.platform} />
-                ) : (
-                  <Icon
-                    name="game-icons:direction-sign"
-                    title={`${props.name}'s website`}
-                  />
-                )}
-              </a>
-            </li>
-          ) : null
-        )
+        props.links.map((link) => (
+          <a href={link.url}>
+            {link.icon ? (
+              <>
+                <Icon name={link.icon} title={link.platform} />
+              </>
+            ) : (
+              <>
+                <Icon
+                  name={"game-icons:direction-sign"}
+                  title={`${props.name}'s website`}
+                />
+              </>
+            )}
+          </a>
+        ))
       }
-    </ul>
+    </p>
   </div>
 </div>
