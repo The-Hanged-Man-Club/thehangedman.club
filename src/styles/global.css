@@ -47,11 +47,11 @@
   }
 
   header {
-    @apply dark:bg-rooibos/30 bg-rooibos/60 border-0 backdrop-blur-3xl;
+    @apply bg-coffee-and-cream border-0;
   }
 
   a.site-title {
-    @apply font-title text-thm-dark dark:text-thm-light hover:text-candlelight font-normal;
+    @apply font-title text-thm-light hover:text-candlelight font-normal;
   }
 
   .social-icons::after {
@@ -59,7 +59,7 @@
   }
 
   .sidebar-pane {
-    @apply bg-croissant dark:bg-coffee-and-cream;
+    @apply bg-croissant dark:bg-mocha;
   }
 
   a.large,
