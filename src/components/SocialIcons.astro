@@ -3,13 +3,24 @@ import Default from "@astrojs/starlight/components/SocialIcons.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<a
-  href="https://thehangedmanpub.tumblr.com/"
-  class="sl-flex hover:opacity-[66%]"
-  rel="me"
-  ><Icon
-    name="simple-icons:tumblr"
-    class="text-fire dark:text-pumpkin-spice text-xl"
-  /></a
->
-<Default><slot /></Default>
+<div class="items-center gap-2 md:flex">
+  <p class="inline">
+    <a
+      href="mailto:admin@thehangedman.club"
+      class="sl-flex h-4"
+      rel="me"
+      title="email"><Icon name="game-icons:scroll-quill" /></a
+    >
+  </p>
+  <p class="inline">
+    <a
+      href="https://thehangedmanpub.tumblr.com/"
+      class="sl-flex h-4"
+      rel="me"
+      title="tumblr"><Icon name="simple-icons:tumblr" /></a
+    >
+  </p>
+</div>
+<Default>
+  <slot />
+</Default>
