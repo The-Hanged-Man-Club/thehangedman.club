@@ -1,27 +1,33 @@
+import astroInspectClip from "astro-inspect-clip";
 import { defineConfig } from "astro/config";
+import favicons from "astro-favicons";
 import icon from "astro-icon";
 import metaTags from "astro-meta-tags";
+import netlify from "@astrojs/netlify";
 import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 import starlight from "@astrojs/starlight";
-import starlightAutoSidebar from "starlight-auto-sidebar";
 import starlightLinksValidator from "starlight-links-validator";
+import starlightThemeNova from "starlight-theme-nova";
 import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://thehangedman.club",
   compressHTML: true,
+
   integrations: [
     icon({
       include: {
-        gameIcons: ["direction-sign"],
+        gameIcons: ["direction-sign", "sunrise", "night-sky", "scroll-quill"],
         // simple-icons needed for zod-transform-socials, but not shipped with plugin, so added here
         simpleIcons: ["*"],
       },
     }),
     sitemap(),
     metaTags(),
+    favicons(),
+    astroInspectClip(),
     robotsTxt({
       policy: [
         {
@@ -93,7 +99,7 @@ export default defineConfig({
         },
       ],
       title: "The Hanged Man",
-      favicon: "/favicon.ico",
+      favicon: "/favicon.svg",
       logo: {
         src: "./src/assets/logo.gif",
       },
@@ -104,10 +110,10 @@ export default defineConfig({
       },
       customCss: [
         "./src/styles/global.css",
-        "@fontsource/patrick-hand-sc",
-        "@fontsource/monaspace-krypton",
-        "@fontsource-variable/lexend",
-        "@fontsource/germania-one",
+        "@fontsource/patrick-hand-sc/400/css",
+        "@fontsource/monaspace-krypton/400.css",
+        "@fontsource-variable/lexend/wght.css",
+        "@fontsource/germania-one/400.css",
       ],
       social: [
         {
@@ -153,22 +159,20 @@ export default defineConfig({
         {
           label: "The Chantry Board",
           items: [
+            { label: "Leadership Team", link: "chantry/leadership" },
             {
-              label: "Leadership Team",
-              link: "/chantry/leadership/",
-            },
-            {
-              label: "Credits",
-              link: "/chantry/credits/",
+              autogenerate: { directory: "chantry" },
             },
           ],
         },
       ],
-      plugins: [starlightLinksValidator(), starlightAutoSidebar()],
+      plugins: [starlightThemeNova(), starlightLinksValidator()],
     }),
   ],
 
   vite: {
-    plugins: [tailwindcss() as any],
+    plugins: [tailwindcss()],
   },
+
+  adapter: netlify(),
 });

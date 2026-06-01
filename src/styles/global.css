@@ -1,8 +1,16 @@
-@layer base, starlight, theme, components, utilities;
+@layer preflight, starlight, nova, theme, utility;
 
+@import "@fontsource-variable/lexend/wght.css";
+@import "@fontsource/patrick-hand-sc/400/css";
+@import "@fontsource/monaspace-krypton/400.css";
+@import "@fontsource-variable/lexend/wght.css";
+@import "@fontsource/germania-one/400.css";
 @import "@astrojs/starlight-tailwind";
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
+@import "starlight-theme-nova/tailwind.css";
+
+@import "tailwindcss";
 
 @theme {
   --font-sans: "Lexend Variable", sans-serif;
@@ -10,113 +18,241 @@
   --font-serif: "Patrick Hand SC", sans-serif;
   --font-title: "Germania One", sans-serif;
 
-  --color-candlelight: #d8b166;
-  --color-coffee: #292522;
-  --color-creamer: #fff7ee;
-  --color-croissant: #eae1db;
-  --color-eggnog: #ece1d7;
-  --color-fire: #bc5c00;
-  --color-latte: #7d6658;
-  --color-coffee-and-cream: #34302c;
-  --color-mocha: #54433a;
-  --color-rooibos: #523c3a;
-  --color-ostkaka: #c1a78e;
-  --color-pumpkin-spice: #e49b5d;
-  --color-thm-light: #943314;
-  --color-thm-dark: #471809;
-  --color-accent-200: var(--color-pumpkin-spice);
-  --color-accent-600: var(--color-fire);
-  --color-white: var(--color-creamer);
-  --color-gray-100: var(--color-rooibos);
-  --color-gray-200: var(--color-croissant);
-  --color-gray-300: var(--color-ostkaka);
-  --color-gray-400: var(--color-croissant);
-  --color-gray-500: var(--color-rooibos);
-  --color-gray-700: var(--color-mocha);
-  --color-gray-800: var(--color-coffee-and-cream);
-  --color-gray-900: var(--color-coffee);
+  /* --- Dark palette (Coffee) --- */
+  --color-coffee-lighter: #51403b;
+  --color-coffee-bg: #262120; /* editor bg / main surface*/
+  --color-coffee-deep: #262120; /* sidebar, nav, tab bar*/
+  --color-coffee-deeper: #231f1e; /* titlebar / nav header*/
+  --color-coffee-raised: #37302f; /* hover surfaces, raised panels */
+  --color-coffee-highlight: #3a302d;
+  --color-coffee-border: #181615; /* hard borders*/
+  --color-coffee-border-mid: #453c3a; /* softer inner borders */
+  --color-coffee-text: #ceb5b0; /* primary text*/
+  --color-coffee-muted: #beaba7; /* secondary text */
+  --color-coffee-dim: #564642; /* inactive / placeholder  */
+  --color-coffee-accent: #f09177; /* salmon-terracotta accent*/
+  --color-coffee-gold: #f7d979; /* amber highlight / bold  */
+  --color-coffee-teal: #6eddd6;
+
+  /* --- Light palette (Coffee Cream) --- */
+  --color-cream-lighter: #eee9e7;
+  --color-cream-bg: #eae4e1; /* editor bg / main surface*/
+  --color-cream-deep: #e3dbd7; /* sidebar, activitybar */
+  --color-cream-deeper: #cec0b9; /* titlebar*/
+  --color-cream-raised: #f4f1f0; /* hover surfaces */
+  --color-cream-highlight: #ddd4d0;
+  --color-cream-border: #cbbbb4; /* hard borders*/
+  --color-cream-border-mid: #d5c9c3; /* softer inner borders */
+  --color-cream-text: #36221d; /* primary text (deep espresso)  */
+  --color-cream-muted: #5a3d36; /* secondary text */
+  --color-cream-dim: #a69692; /* inactive / placeholder  */
+  --color-cream-accent: #d3694c; /* terracotta/clay accent  */
+  --color-cream-gold: #ad8200; /* dark amber highlight / bold*/
+  --color-cream-teal: #008ea4;
 }
 
-@layer components {
-  .content-panel,
-  .sidebar-pane,
-  details > ul > li,
-  site-search button,
-  .right-sidebar {
-    @apply border-0;
-  }
+/* ============================================================
+STARLIGHT TOKEN OVERRIDES — LIGHT (Coffee Cream)
+============================================================ */
+:root[data-theme="light"] {
+  --font-sans: "Lexend Variable", sans-serif;
+  --font-mono: "Monaspace Krypton", monospace;
+  --font-serif: "Patrick Hand SC", sans-serif;
+  --sl-font: var(--font-sans);
 
-  header {
-    @apply bg-coffee-and-cream border-0;
-  }
+  --sl-color-bg: var(--color-cream-bg);
+  --sl-color-bg-nav: var(--color-cream-deep);
+  --sl-color-bg-sidebar: var(--color-cream-deep);
+  --sl-color-black: var(--color-cream-deep);
+  --sl-color-white: var(--color-cream-text);
+  --sl-color-text: var(--color-cream-text);
+  --sl-color-text-accent: var(--color-cream-accent);
+  --sl-color-accent: var(--color-cream-accent);
+  --sl-color-accent-high: var(--color-cream-gold);
+  --sl-color-hairline: var(--color-cream-border);
+  --sl-color-gray-1: var(--color-cream-deeper);
+  --sl-color-gray-2: var(--color-cream-deep);
+  --sl-color-gray-3: var(--color-cream-border);
+  --sl-color-gray-4: var(--color-cream-dim);
+  --sl-color-gray-5: var(--color-cream-muted);
+  --sl-color-gray-6: var(--color-cream-text);
+}
 
-  a.site-title {
-    @apply font-title text-thm-light hover:text-candlelight font-normal;
-  }
+/* ============================================================
+STARLIGHT TOKEN OVERRIDES — DARK (Coffee)
+============================================================ */
+:root[data-theme="dark"] {
+  --font-sans: "Lexend Variable", sans-serif;
+  --font-mono: "Monaspace Krypton", monospace;
+  --font-serif: "Patrick Hand SC", sans-serif;
+  --sl-font: var(--font-sans);
 
-  .social-icons::after {
-    @apply border-0;
-  }
+  --sl-color-bg: var(--color-coffee-bg);
+  --sl-color-bg-nav: var(--color-coffee-deeper);
+  --sl-color-bg-sidebar: var(--color-coffee-deep);
+  --sl-color-black: var(--color-coffee-deeper);
+  --sl-color-white: var(--color-coffee-text);
+  --sl-color-text: var(--color-coffee-text);
+  --sl-color-text-accent: var(--color-coffee-accent);
+  --sl-color-accent: var(--color-coffee-accent);
+  --sl-color-accent-high: var(--color-coffee-gold);
+  --sl-color-hairline: var(--color-coffee-border);
+  --sl-color-gray-1: var(--color-coffee-deeper);
+  --sl-color-gray-2: var(--color-coffee-deep);
+  --sl-color-gray-3: var(--color-coffee-border-mid);
+  --sl-color-gray-4: var(--color-coffee-dim);
+  --sl-color-gray-5: var(--color-coffee-muted);
+  --sl-color-gray-6: var(--color-coffee-text);
+}
 
-  .sidebar-pane {
-    @apply bg-croissant dark:bg-mocha;
-  }
+/* ============================================================
+NOVA / STARLIGHT STRUCTURAL OVERRIDES
+============================================================ */
 
-  a.large,
-  span.large {
-    @apply text-latte dark:text-eggnog font-serif text-2xl/tight font-normal;
-  }
+/* Strip borders from panels and sidebar — same as old theme */
+.content-panel,
+.sidebar-pane,
+details > ul > li,
+site-search button,
+.right-sidebar {
+  @apply border-0!;
+}
 
-  a[aria-current*="page"] {
-    @apply text-creamer dark:text-coffee;
-  }
+.right-sidebar {
+  @apply border-s-0!;
+}
 
-  details > ul > li a {
-    @apply text-lg/tight;
-  }
+#starlight__sidebar,
+header {
+  @apply border-0!;
+}
 
-  .content-panel ul li {
-    @apply text-coffee-and-cream/60 dark:text-creamer/60 dark:marker:text-eggnog list-none;
-  }
+/* Header */
+header {
+  @apply bg-cream-lighter/60! dark:bg-coffee-lighter/60! backdrop-blur-3xl;
+}
 
-  .content-panel ul li::marker {
-    content: "✦   ";
-  }
+/* Sidebar */
+.sidebar {
+  @apply bg-cream-deep! dark:bg-coffee-deeper!;
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h4,
-  h6 {
-    @apply text-latte dark:text-eggnog border-0 font-serif;
-  }
+/* Content panel bottom padding */
+.content-panel {
+  @apply pb-0!;
+}
 
-  h1 {
-    @apply text-center;
-  }
+/* ============================================================
+SITE TITLE / LOGO
+Uses --font-title (Germania One) — exactly like old theme
+============================================================ */
+a.site-title {
+  @apply font-title! hover:text-coffee-gold! mt-0.5 text-xl font-normal text-[#471809]! no-underline! hover:no-underline! dark:text-[#943314]!;
+}
 
-  b,
-  strong {
-    @apply text-fire dark:text-pumpkin-spice font-mono text-base font-normal;
-  }
+/* ============================================================
+HEADER CHROME — icons, search, theme toggle
+============================================================ */
+header,
+site-search,
+site-search svg,
+site-search span,
+astro-theme-toggle,
+astro-theme-toggle svg,
+summary,
+summary svg {
+  @apply text-cream-text dark:text-coffee-text;
+}
 
-  p,
-  ul,
-  ol,
-  li {
-    @apply text-lg;
-  }
+kbd {
+  @apply text-coffee-text! dark:text-cream-text!;
+}
 
-  a {
-    @apply no-underline;
-  }
+/* ============================================================
+TYPOGRAPHY
+============================================================ */
 
-  a:hover {
-    @apply underline decoration-wavy underline-offset-8;
-  }
+/* Body copy */
+p,
+ul,
+ol,
+li {
+  @apply font-sans text-lg;
+}
 
-  .social {
-    @apply mt-0;
-  }
+/* Headings — Patrick Hand SC, flat color */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-cream-muted dark:text-coffee-muted border-0! font-serif;
+}
+
+/* Bold / strong — monospace + accent gold, echoing old theme's fire treatment */
+b,
+strong {
+  @apply text-cream-gold dark:text-coffee-gold font-mono! text-base font-normal;
+}
+
+em,
+i {
+  @apply dark:text-coffee-teal text-cream-teal;
+}
+
+/* ============================================================
+LINKS
+============================================================ */
+a {
+  @apply text-cream-accent hover:text-cream-gold dark:text-coffee-accent dark:hover:text-coffee-gold no-underline hover:underline hover:decoration-dashed hover:underline-offset-8;
+}
+/* Active nav item */
+a[aria-current*="page"] {
+  @apply text-coffee-bg! bg-cream-highlight! dark:bg-coffee-highlight! dark:text-cream-bg! font-bold hover:no-underline!;
+}
+
+/* ============================================================
+SIDEBAR NAVIGATION
+============================================================ */
+
+/* Top-level section labels */
+.sidebar-content ul li a.large span {
+  @apply font-serif! text-2xl/tight font-normal;
+}
+/* Nav links */
+starlight-toc nav ul li a,
+.sidebar-content ul li a {
+  @apply text-cream-text/75 hover:text-coffee-bg hover:bg-cream-highlight dark:text-coffee-text/75 dark:hover:text-cream-bg dark:hover:bg-coffee-highlight font-mono no-underline;
+}
+
+starlight-toc nav ul li a {
+  @apply text-sm/tight!;
+}
+
+/* Nested nav link size */
+details > ul > li a {
+  @apply text-lg/tight;
+}
+
+.group-label span {
+  @apply text-cream-muted dark:text-coffee-muted font-serif! text-2xl/tight font-normal;
+}
+
+/* TOC heading */
+starlight-toc nav h2 {
+  @apply text-xl;
+}
+
+/* ============================================================
+CONTENT PANEL — list styling
+Keeps the ✦ marker from the old theme
+============================================================ */
+.content-panel ul li {
+  @apply dark:text-coffee-text/60! text-cream-text/60! list-none;
+}
+
+.content-panel ul li::marker {
+  @apply text-cream-accent dark:text-coffee-accent! font-mono! text-base font-normal;
+  content: "✦";
 }

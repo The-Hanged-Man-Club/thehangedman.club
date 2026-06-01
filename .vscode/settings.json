@@ -2,5 +2,6 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "peacock.color": "#f5a97f",
   "peacock.remoteColor": "",
-  "peacock.showColorInStatusBar": true
+  "peacock.showColorInStatusBar": true,
+  "folder-color.pathColors": []
 }
