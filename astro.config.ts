@@ -1,4 +1,3 @@
-import astroInspectClip from "astro-inspect-clip";
 import { defineConfig } from "astro/config";
 import favicons from "astro-favicons";
 import icon from "astro-icon";
@@ -7,6 +6,7 @@ import netlify from "@astrojs/netlify";
 import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 import starlight from "@astrojs/starlight";
+import starlightBlog from "starlight-blog";
 import starlightLinksValidator from "starlight-links-validator";
 import starlightThemeNova from "starlight-theme-nova";
 import tailwindcss from "@tailwindcss/vite";
@@ -19,7 +19,13 @@ export default defineConfig({
   integrations: [
     icon({
       include: {
-        gameIcons: ["direction-sign", "sunrise", "night-sky", "scroll-quill"],
+        gameIcons: [
+          "direction-sign",
+          "sunrise",
+          "night-sky",
+          "scroll-quill",
+          "tied-scroll",
+        ],
         // simple-icons needed for zod-transform-socials, but not shipped with plugin, so added here
         simpleIcons: ["*"],
       },
@@ -27,7 +33,6 @@ export default defineConfig({
     sitemap(),
     metaTags(),
     favicons(),
-    astroInspectClip(),
     robotsTxt({
       policy: [
         {
@@ -98,6 +103,24 @@ export default defineConfig({
           },
         },
       ],
+      plugins: [
+        starlightThemeNova(),
+        starlightLinksValidator(),
+        starlightBlog({
+          authors: {
+            enigmalea: {
+              name: "enigmalea",
+              title: "Board Member & Event Mod",
+              picture: "/enigmalea.png",
+              url: "https://enigmalea.quest",
+            },
+          },
+          metrics: {
+            readingTime: true,
+            words: "total",
+          },
+        }),
+      ],
       title: "The Hanged Man",
       favicon: "/favicon.svg",
       logo: {
@@ -110,7 +133,7 @@ export default defineConfig({
       },
       customCss: [
         "./src/styles/global.css",
-        "@fontsource/patrick-hand-sc/400/css",
+        "@fontsource/patrick-hand-sc/400.css",
         "@fontsource/monaspace-krypton/400.css",
         "@fontsource-variable/lexend/wght.css",
         "@fontsource/germania-one/400.css",
@@ -166,7 +189,6 @@ export default defineConfig({
           ],
         },
       ],
-      plugins: [starlightThemeNova(), starlightLinksValidator()],
     }),
   ],
 

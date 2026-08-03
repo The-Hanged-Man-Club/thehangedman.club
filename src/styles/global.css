@@ -1,7 +1,7 @@
-@layer preflight, starlight, nova, theme, utility;
+@layer preflight, starlight, nova, theme, utility, overrides;
 
 @import "@fontsource-variable/lexend/wght.css";
-@import "@fontsource/patrick-hand-sc/400/css";
+@import "@fontsource/patrick-hand-sc/400.css";
 @import "@fontsource/monaspace-krypton/400.css";
 @import "@fontsource-variable/lexend/wght.css";
 @import "@fontsource/germania-one/400.css";
@@ -255,4 +255,22 @@ Keeps the ✦ marker from the old theme
 .content-panel ul li::marker {
   @apply text-cream-accent dark:text-coffee-accent! font-mono! text-base font-normal;
   content: "✦";
+}
+
+/* ============================================================
+BLOG POSTS
+============================================================ */
+.preview header {
+  @apply p-2.5;
+}
+
+.preview-link {
+  @apply mb-0!;
+}
+.preview-link h2 {
+  @apply text-4xl!;
+}
+
+.metadata-alt {
+  @apply text-cream-gold! dark:text-coffee-gold!;
 }
