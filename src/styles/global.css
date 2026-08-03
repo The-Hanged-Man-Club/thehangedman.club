@@ -187,7 +187,23 @@ h3,
 h4,
 h5,
 h6 {
-  @apply text-cream-muted dark:text-coffee-muted border-0! font-serif;
+  @apply border-0! font-sans;
+}
+
+h1 {
+  @apply text-cream-muted before:bg-cream-muted p-5 pl-0! leading-[120%] uppercase before:absolute before:top-full before:left-6.25 before:h-0.75 before:w-[10%] dark:text-white dark:before:text-white;
+
+  & ::before {
+    content: "";
+  }
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-cream-gold dark:text-coffee-gold;
 }
 
 /* Bold / strong — monospace + accent gold, echoing old theme's fire treatment */
@@ -260,15 +276,20 @@ Keeps the ✦ marker from the old theme
 /* ============================================================
 BLOG POSTS
 ============================================================ */
+
+.preview {
+  @apply bg-cream-deep! dark:bg-coffee-deeper! border-cream-border dark:border-coffee-raised outline-cream-bg dark:outline-coffee-bg rounded-lg p-10 outline-[5px] outline-offset-[-15px];
+}
+
 .preview header {
-  @apply p-2.5;
+  @apply bg-transparent! p-2.5;
 }
 
 .preview-link {
   @apply mb-0!;
 }
 .preview-link h2 {
-  @apply text-4xl!;
+  @apply hover:text-cream-accent! dark:hover:text-coffee-accent! mb-2.5 pb-2.5 font-sans text-3xl! text-black! dark:text-white!;
 }
 
 .metadata-alt {

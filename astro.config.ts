@@ -107,6 +107,7 @@ export default defineConfig({
         starlightThemeNova(),
         starlightLinksValidator(),
         starlightBlog({
+          navigation: "none",
           authors: {
             enigmalea: {
               name: "enigmalea",
