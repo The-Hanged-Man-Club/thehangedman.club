@@ -5,7 +5,7 @@ description:
   discussions, creative challenges, and rotating themed events inside The Hanged
   Man Discord.
 sidebar:
-  order: 2
+  order: 3
 next: false
 ---
 

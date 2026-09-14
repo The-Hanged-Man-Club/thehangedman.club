@@ -17,6 +17,7 @@ const discordMods = allMods!.filter((mod) =>
 const dapolyMods = allMods!.filter((mod) =>
   mod.data.mod_duties.includes("da poly")
 );
+const daa = allMods!.filter((mod) => mod.data.mod_duties.includes("daa"));
 ---
 
 <StarlightPage
@@ -53,14 +54,15 @@ const dapolyMods = allMods!.filter((mod) =>
     }
   </div>
 
-  <!-- <h2>Pillowfort</h2>
+  <h2>Dragon Age Annual</h2>
   <div
     class="grid grid-cols-1 items-end justify-items-start gap-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3"
   >
     {
-      pillowfortMods.map(async (mod) => {
+      daa.map(async (mod) => {
         return (
           <ModCard
+            id={mod.data.id}
             name={mod.data.name}
             avatar={mod.data.avatar}
             links={mod.data.links}
@@ -70,24 +72,6 @@ const dapolyMods = allMods!.filter((mod) =>
       })
     }
   </div>
-
-  <h2>Dreamwidth</h2>
-  <div
-    class="grid grid-cols-1 items-end justify-items-start gap-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3"
-  >
-    {
-      dreamwidthMods.map(async (mod) => {
-        return (
-          <ModCard
-            name={mod.data.name}
-            avatar={mod.data.avatar}
-            links={mod.data.links}
-            mod_duties={mod.data.mod_duties}
-          />
-        );
-      })
-    }
-  </div> -->
 
   <h2>Arlathan eXchange</h2>
   <div
