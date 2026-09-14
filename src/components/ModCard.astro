@@ -28,24 +28,22 @@ const props = Astro.props as Props;
 
   <div class="social self-start">
     <p class="inline-flex gap-2.5">
-      {
-        props.links.map((link) => (
-          <a href={link.url}>
-            {link.icon ? (
-              <>
-                <Icon name={link.icon} title={link.platform} />
-              </>
-            ) : (
-              <>
-                <Icon
-                  name={"game-icons:direction-sign"}
-                  title={`${props.name}'s website`}
-                />
-              </>
-            )}
-          </a>
-        ))
-      }
+      {props.links.map((link) => (
+        <a href={link.url}>
+          {link.icon ? (
+            <>
+              <Icon name={link.icon} title={link.platform} />
+            </>
+          ) : (
+            <>
+              <Icon
+                name={"game-icons:direction-sign"}
+                title={`${props.name}'s website`}
+              />
+            </>
+          )}
+        </a>
+      ))}
     </p>
   </div>
 </div>
