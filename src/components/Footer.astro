@@ -1,0 +1,19 @@
+---
+import Footer from "@astrojs/starlight/components/Footer.astro";
+
+const year = new Date().getFullYear();
+---
+
+<Footer />
+<div class="footer">
+  &copy; {year} The Hanged Man Club. All rights reserved.
+</div>
+
+<style>
+  @reference "tailwindcss";
+  @reference "../styles/global.css";
+
+  .footer {
+    @apply text-cream-text dark:text-coffee-text border-cream-text dark:border-coffee-text mx-auto mt-4 w-2/3 border-t py-4 text-center text-sm;
+  }
+</style>

@@ -104,7 +104,19 @@ export default defineConfig({
         },
       ],
       plugins: [
-        starlightThemeNova(),
+        starlightThemeNova({
+          nav: [
+            {
+              label: "Arlathan eXchange",
+              href: "https://arlathanexchange.thehangedman.club",
+            },
+            {
+              label: "DA Polyshipping",
+              href: "https://dapolyshipping.thehangedman.club",
+            },
+            { label: "Dragon Age Annual", href: "https://dragonageannual.art" },
+          ],
+        }),
         starlightLinksValidator(),
         starlightBlog({
           navigation: "none",
@@ -114,6 +126,12 @@ export default defineConfig({
               title: "Board Member & Event Mod",
               picture: "/enigmalea.png",
               url: "https://enigmalea.quest",
+            },
+            FoxInBoots: {
+              name: "FoxInBoots",
+              title: "Board Member & Event Mod",
+              picture: "/foxinboots.png",
+              url: "https://thefoxinboots.tumblr.com",
             },
           },
           metrics: {
@@ -128,6 +146,7 @@ export default defineConfig({
         src: "./src/assets/logo.gif",
       },
       components: {
+        Footer: "./src/components/Footer.astro",
         SiteTitle: "./src/components/SiteTitle.astro",
         SocialIcons: "./src/components/SocialIcons.astro",
         ThemeSelect: "./src/components/ThemeSelect.astro",
@@ -143,7 +162,7 @@ export default defineConfig({
         {
           icon: "blueSky",
           label: "BlueSky",
-          href: "https://bsky.app/profile/thehangedmanpub.bsky.social",
+          href: "https://bsky.app/profile/thehangedmanclub.bsky.app",
         },
         {
           icon: "discord",
@@ -164,21 +183,6 @@ export default defineConfig({
         {
           label: "Member Inventory",
           items: [{ autogenerate: { directory: "resources" } }],
-        },
-        {
-          label: "Quests",
-          items: [
-            {
-              label: "Arlathan eXchange",
-              link: "https://arlathanxchange.neocities.org",
-              attrs: { target: "_blank" },
-            },
-            {
-              label: "DA Polyshipping",
-              link: "https://dapolyshipping.neocities.org",
-              attrs: { target: "_blank" },
-            },
-          ],
         },
         {
           label: "The Chantry Board",

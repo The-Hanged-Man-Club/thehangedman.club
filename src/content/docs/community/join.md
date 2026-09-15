@@ -38,7 +38,7 @@ treats others with respect.
 
 You can join us by entering the Discord server:
 
-👉 [**Join The Hanged Man Discord**](https://discord.gg/9RERC6R) 👈
+👉 [Join The Hanged Man Discord](https://discord.gg/9RERC6R) 👈
 
 When you arrive, you’ll go through a short application process. This helps us
 keep the community running smoothly and ensures that everyone who joins is a
@@ -53,17 +53,24 @@ You’ll be asked to:
 Once everything looks good, a moderator will approve your application and you’ll
 be able to jump in and explore the server.
 
-## A Note on AI Use
+### A Note on AI Use
 
-Members are welcome to use AI tools, but we do expect everyone to follow our
-guidelines around respecting creative work. Please review our
+Discord community members are welcome to use AI tools, but we do expect everyone
+to follow our guidelines around respecting creative work. Please review our
 [AI Use Policy](/community/code/#respect-for-creative-work--ai-use) before
 participating.
 
 ## Events and Other Spaces
 
 We also run fandom events, exchanges, and community projects throughout the
-year. Some events have their own rules or content guidelines — check each event
-page for details.
+year. Events have their own rules or content guidelines — check each event page
+for details.
 
-Participation in events is open to the wider fandom, not just Discord members.
+Participation in events is open to the wider fandom, not just Discord members,
+and also gives you membership into The Hanged Man Club.
+
+### Internal Projects
+
+- [Arlathan eXchange](https://arlathanexchange.thehangedman.club)
+- [DA Polyshipping](https://dapolyshipping.thehangedman.club)
+- [Dragon Age Annual](https://dragonageannual.art)
